@@ -11,7 +11,7 @@ public class GemTemplate : ScriptableObject
         return _sprite;
     }
 
-    public GemType GetType()
+    public GemType GetGemType()
     {
         return _type;
     }

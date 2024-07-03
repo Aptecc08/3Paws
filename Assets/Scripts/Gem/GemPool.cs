@@ -6,12 +6,17 @@ public class GemPool : MonoBehaviour
 {
     private GameObject _gemPrefab;
     private GemTemplate _gemTemplate;
-    private Queue<GameObject> _gems;
+    private Queue<GameObject> _gems = new Queue<GameObject>();
 
-    public GemPool(GameObject gemPrefab, GemTemplate template)
+    public GemPool(GameObject gemPrefab, GemTemplate template, int max)
     {
         _gemPrefab = gemPrefab;
         _gemTemplate = template;
+
+        for(int i = 0; i < max; i++)
+        {
+            PutToPool(CreateNewGem());
+        }
     }
 
     public GameObject TakeFromPool()

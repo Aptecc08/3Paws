@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class Gem : MonoBehaviour
 {
-    private Sprite _sprite;
+    private SpriteRenderer _spriteRender;
     private GemType _type;
-
-    public Gem(GemTemplate template)
-    {
-        SetParameters(template);
-    }
 
     public void SetParameters(GemTemplate template)
     {
-        _sprite = template.GetSprite();
-        _type = template.GetType();
+        _spriteRender = GetComponent<SpriteRenderer>();
+        _spriteRender.sprite = template.GetSprite();
+        _type = template.GetGemType();
     }
 
     public GemType GetGemType()

@@ -9,18 +9,18 @@ public class Slot : MonoBehaviour
 
     private void Start()
     {
-        if (!_isBlocked)
-            //паоменять тут на взятие из пула
-            GemManager.Instance.GetTypeForGenerateGem();
+        //if (!_isBlocked)
+           //GemManager.Instance.SetGemToSlot(this);
     }
     private void UnBlocked()
     {
         _isBlocked = false;
     }
 
-    public void SetGem(Gem gem)
+    public void SetGem(GameObject gem)
     {
-        _gem = gem;
+        gem.transform.position = transform.position;
+        _gem = gem.GetComponent<Gem>();
     }
 
     public void ChangeFillingStatus()
